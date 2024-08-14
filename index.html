@@ -1614,10 +1614,10 @@ knowing prefixed tuning parameters.</p>
 <li><p><strong>y</strong> : Response Variable.</p></li>
 <li><p><strong>Z</strong> : Overlapping Features.</p></li>
 <li><p><strong>W</strong> : Unmatched Features.</p></li>
-<li><p><strong>A</strong> : Study-specific Adjustment Factors. Ignore
-the input of A if there is no intercept term (all variables are
-centered) when family = “gaussian” or only intercept term when family =
-“binomial”.</p></li>
+<li><p><strong>A</strong> : Study-specific Adjustment Factors. For
+default setting, we ignore the input of A if there is no intercept term
+(all variables are centered) when family = “gaussian” or only intercept
+term when family = “binomial”.</p></li>
 <li><p><strong>ext_study_info</strong> : Parameter estimation from
 External Study regarding overlapping features. “ext_study_info” comes as
 list, including the information of estimated coefficient, estimated
@@ -1628,6 +1628,65 @@ and logistic (“binomial”).</p></li>
 c(“none”,“adaptivelasso”,“lasso”,“ridge”,“elasticnet”). We allow all
 penalty choices available from glmnet.</p></li>
 </ul>
+<details>
+<summary>
+Click for more details of input parameters
+<img src="data:image/png;base64,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" alt="setup" style="zoom:10%;" />
+</summary>
+<ul>
+<li><p><strong>initial_with_type</strong>: Get initial estimation for
+beta using main study data only by cross validation using penalty
+regression, chosen from c(“ridge”,“lasso”,“glm”).</p></li>
+<li><p><strong>beta_initial</strong>: The initial estimation for beta if
+a consistent estimator is available. The default is NULL, and main study
+is used for initial estimation according to
+‘initial_with_type’.</p></li>
+<li><p><strong>weight_adaptivelasso</strong>: The customized
+adaptive-weight of adaptive lasso when using penalty_type =
+‘adaptivelasso’.</p></li>
+<li><p><strong>alpha</strong>: The elasticnet mixing parameter, between
+0 and 1, which is corresponding to the alpha for glmnet. Only used when
+penalty_type = ‘elasticnet’.</p></li>
+<li><p><strong>hat_thetaA</strong>: If A is not NULL, one can provide
+hat_thetaA as the input. If ‘hat_thetaA = NULL’, we estimate hat_thetaA
+with glm by main study.</p></li>
+<li><p><strong>V_thetaA</strong>: If A is not NULL, one can provide
+V_thetaA as the input. If ‘V_thetaA = NULL’, we estimate V_thetaA with
+glm by main study.</p></li>
+<li><p><strong>remove_penalty_Z</strong>: Do not penalize Z if it is
+TRUE. The default is FALSE.</p></li>
+<li><p><strong>remove_penalty_W</strong>: Do not penalize W if it is
+TRUE. The default is FALSE.</p></li>
+<li><p><strong>inference</strong>: Whether to do inference without
+penalty or post-selection inference with adaptive lasso penalty. The
+default is ‘default’, which is TRUE when penalty_type = ‘none’ or
+‘adaptivelasso’, and FALSE otherwise.</p></li>
+<li><p><strong>fix_C</strong>: When fix_C = NULL, the optimal C is
+computed. When user wants to customize the fix_C, please match its
+dimension as dim(A)+2*dim(Z)+dim(W) and make sure it is positive
+definite.</p></li>
+<li><p><strong>fix_inv_C</strong>: When fix_inv_C = NULL, the optimal C
+is computed. When user wants to customize the fix_inv_C, please match
+its dimension as dim(A)+2*dim(Z)+dim(W) and make sure it is positive
+definite. When fix_C and fix_inv_C are both given, the fix_C will be
+used.</p></li>
+<li><p><strong>type_measure</strong>: Select from c(“default”, “mse”,
+“deviance”, “auc”). Default is mse(liner), auc(logistic). ‘deviance’ is
+another choice for binary y.</p></li>
+<li><p><strong>tune_weight</strong>: Whether to assign tuning weight for
+the regularization of weighting matrix. The default is FALSE.</p></li>
+<li><p><strong>fix_weight</strong>: The fixed weight for the
+regularization of weighting matrix. The default is NULL. If it is NULL,
+select the best weight via cross validation.</p></li>
+<li><p><strong>weight_list</strong>: The weight list if it is preset.
+The default is NULL and weight list will be generated.</p></li>
+<li><p><strong>tune_weight_method</strong>: Method for weighting matrix
+regularization. The default is ‘multiplicative shrinkage’, which can
+also be used as ‘mshrink’ or ‘ms’. The other choice is ‘ridge’.</p></li>
+<li><p><strong>gamma_adaptivelasso</strong>: The gamma for adaptive
+lasso. Select from c(1/2,1,2). The default is 1/2.</p></li>
+</ul>
+</details>
 <hr />
 </div>
 <div id="output-values-of-cv.htlgmm" class="section level2">
